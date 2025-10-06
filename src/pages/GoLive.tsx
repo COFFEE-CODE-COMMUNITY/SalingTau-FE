@@ -7,7 +7,7 @@ export default function GoLive() {
       <header className="sticky top-0 bg-white/80 backdrop-blur-sm border-b z-10">
         <div className="h-16 flex items-center justify-between px-6">
           <h2 className="text-xl font-semibold text-gray-900">Setup Your Live Stream</h2>
-          <Link to="/livestream" className="text-sm font-medium text-gray-600 hover:text-gray-900">
+          <Link to="/dashboard" className="text-sm font-medium text-gray-600 hover:text-gray-900">
             Cancel
           </Link>
         </div>

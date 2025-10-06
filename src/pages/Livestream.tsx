@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Video, Calendar } from 'lucide-react';
+import {Calendar, Search} from 'lucide-react';
 
 export default function Livestream() {
   return (
@@ -7,13 +7,14 @@ export default function Livestream() {
       <header className="sticky top-0 bg-white/80 backdrop-blur-sm border-b z-10">
         <div className="h-16 flex items-center justify-between px-6">
           <h2 className="text-xl font-semibold text-gray-900">Live Streams</h2>
-          <Link
-            to="/livestream/go-live"
-            className="flex items-center justify-center bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-red-700 transition-colors"
-          >
-            <Video className="w-5 h-5 mr-2" />
-            Go Live
-          </Link>
+          <div className="relative">
+            <Search className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+            <input
+              type="text"
+              placeholder="Search live..."
+              className="w-64 pl-10 pr-4 py-2 text-sm border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition"
+            />
+          </div>
         </div>
       </header>
 

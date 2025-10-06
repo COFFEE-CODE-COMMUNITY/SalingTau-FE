@@ -1,163 +1,175 @@
-import { Search, Bell, BookOpen, CheckCircle, Clock, Award } from 'lucide-react';
+import {Pencil, Plus, Trash2, Video} from "lucide-react";
+import {Link} from "react-router-dom";
 
 export default function Dashboard() {
+  // Data dummy dulu
+  const courses = [
+    {
+      image:
+        "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2670&auto=format&fit=crop",
+      title: "Full-Stack Web Developer Bootcamp",
+      free: true,
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1593720213428-28a5b9e94613?q=80&w=2670&auto=format&fit=crop",
+      title: "Advanced React & Redux",
+      free: false,
+    },
+  ];
+
   return (
-    <>
-      <header className="sticky top-0 bg-white/80 backdrop-blur-sm border-b border-gray-200 z-10">
-        <div className="h-16 flex items-center justify-between px-6">
-          <div>
-            <h2 className="text-xl font-semibold text-gray-900">Dashboard</h2>
-          </div>
-          <div className="flex items-center space-x-4">
-            <div className="relative">
-              <Search className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-              <input
-                type="text"
-                placeholder="Search anything..."
-                className="w-64 pl-10 pr-4 py-2 text-sm border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition"
-              />
-            </div>
-            <button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
-              <Bell className="w-5 h-5 text-gray-500" />
-            </button>
-          </div>
+    <div className="min-h-screen bg-gray-100">
+      {/* Header */}
+      <header className="h-16 bg-white flex items-center justify-between px-6 border-b">
+        {/* Judul */}
+        <h1 className="text-xl font-bold text-gray-800">Dashboard</h1>
+
+        {/* Actions */}
+        <div className="flex items-center space-x-4">
+          <Link
+            to="/dashboard/go-live"
+            className="flex items-center justify-center bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-red-700 transition-colors"
+          >
+            <Video className="w-5 h-5 mr-2" />
+            Go Live
+          </Link>
+          <Link
+            to="/dashboard/create-course"
+            className="flex items-center justify-center bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
+          >
+            <Plus className="w-4 h-4 mr-2" />
+            Create Course
+          </Link>
         </div>
       </header>
 
-      <div className="p-8">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Selamat Datang Kembali, Andi! 👋</h1>
-          <p className="mt-1 text-gray-500">Selalu ada hal baru untuk dipelajari. Teruslah berkembang!</p>
-        </div>
+      {/* Body */}
+      <main className="max-w-8xl mx-auto px-8 py-4">
+        <div className="mt-2 space-y-8">
+          {/* Ringkasan Pendapatan */}
+          <div className="bg-white rounded-xl shadow-md border p-6">
+            <div className="flex justify-between items-center">
+              <h3 className="text-lg font-bold text-gray-900">
+                Summary
+              </h3>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4 text-center">
+              <div>
+                <p className="text-sm text-gray-500">Income Per-Month</p>
+                <p className="text-3xl font-bold text-gray-900 mt-1">
+                  Rp 2.850.000
+                </p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-500">Selling Total</p>
+                <p className="text-3xl font-bold text-gray-900 mt-1">15</p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-500">Income Total</p>
+                <p className="text-3xl font-bold text-gray-900 mt-1">
+                  Rp 21.980.000
+                </p>
+              </div>
+            </div>
+          </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <div className="bg-white p-6 rounded-xl shadow-md flex items-center space-x-4">
-            <div className="bg-blue-100 p-3 rounded-full">
-              <BookOpen className="w-6 h-6 text-blue-600" />
-            </div>
-            <div>
-              <p className="text-sm text-gray-500">Courses in Progress</p>
-              <p className="text-2xl font-bold text-gray-900">5</p>
-            </div>
-          </div>
-          <div className="bg-white p-6 rounded-xl shadow-md flex items-center space-x-4">
-            <div className="bg-green-100 p-3 rounded-full">
-              <CheckCircle className="w-6 h-6 text-green-600" />
-            </div>
-            <div>
-              <p className="text-sm text-gray-500">Completed Courses</p>
-              <p className="text-2xl font-bold text-gray-900">7</p>
-            </div>
-          </div>
-          <div className="bg-white p-6 rounded-xl shadow-md flex items-center space-x-4">
-            <div className="bg-yellow-100 p-3 rounded-full">
-              <Clock className="w-6 h-6 text-yellow-600" />
-            </div>
-            <div>
-              <p className="text-sm text-gray-500">Total Hours Learned</p>
-              <p className="text-2xl font-bold text-gray-900">128</p>
-            </div>
-          </div>
-          <div className="bg-white p-6 rounded-xl shadow-md flex items-center space-x-4">
-            <div className="bg-purple-100 p-3 rounded-full">
-              <Award className="w-6 h-6 text-purple-600" />
-            </div>
-            <div>
-              <p className="text-sm text-gray-500">Certificates Earned</p>
-              <p className="text-2xl font-bold text-gray-900">4</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">Continue Learning</h2>
-            <div className="space-y-6">
-              <div className="bg-white rounded-xl shadow-md overflow-hidden flex items-center p-4 transition-shadow hover:shadow-lg">
-                <img
-                  className="h-24 w-32 object-cover rounded-lg"
-                  src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2670&auto=format&fit=crop"
-                  alt="Web Development Course"
-                />
-                <div className="flex-1 ml-5">
-                  <span className="text-xs font-semibold text-blue-600 bg-blue-100 px-2 py-1 rounded-full">
-                    Web Development
-                  </span>
-                  <h3 className="mt-2 text-md font-semibold text-gray-900">
-                    Full-Stack Web Developer Bootcamp
-                  </h3>
-                  <div className="mt-3">
-                    <div className="flex justify-between items-center mb-1">
-                      <span className="text-xs font-medium text-gray-500">Progress</span>
-                      <span className="text-xs font-semibold text-blue-600">75%</span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div className="bg-blue-600 h-2 rounded-full" style={{ width: '75%' }}></div>
+          {/* Manage Paid Content */}
+          <div className="bg-white rounded-xl shadow-md border p-6">
+            <h3 className="text-lg font-bold text-gray-900">
+              Manage Content
+            </h3>
+            <p className="text-sm text-gray-500 mt-1">
+              Atur kursus mana yang ingin Anda jadikan konten berbayar.
+            </p>
+            <ul className="divide-y divide-gray-200 mt-4">
+              {courses.map((course, idx) => (
+                <li
+                  key={idx}
+                  className="py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0"
+                >
+                  {/* Left side */}
+                  <div className="flex items-center space-x-4">
+                    <img
+                      className="h-16 w-24 object-cover rounded-md"
+                      src={course.image}
+                      alt={course.title}
+                    />
+                    <div>
+                      <p className="font-semibold text-gray-800">
+                        {course.title}
+                      </p>
+                      <p className="text-sm text-gray-500">
+                        Status:{" "}
+                        <span
+                          className={`font-medium ${
+                            course.free ? "text-green-600" : "text-blue-600"
+                          }`}
+                        >
+                          {course.free ? "Free" : "Paid"}
+                        </span>
+                      </p>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div className="bg-white rounded-xl shadow-md overflow-hidden flex items-center p-4 transition-shadow hover:shadow-lg">
-                <img
-                  className="h-24 w-32 object-cover rounded-lg"
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop"
-                  alt="Data Science Course"
-                />
-                <div className="flex-1 ml-5">
-                  <span className="text-xs font-semibold text-green-600 bg-green-100 px-2 py-1 rounded-full">
-                    Data Science
-                  </span>
-                  <h3 className="mt-2 text-md font-semibold text-gray-900">Data Science with Python</h3>
-                  <div className="mt-3">
-                    <div className="flex justify-between items-center mb-1">
-                      <span className="text-xs font-medium text-gray-500">Progress</span>
-                      <span className="text-xs font-semibold text-green-600">40%</span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div className="bg-green-600 h-2 rounded-full" style={{ width: '40%' }}></div>
-                    </div>
+
+                  {/* Right side */}
+                  <div className="flex items-center space-x-3 justify-end">
+
+                    {/* Switch + optional price input */}
+                    {course.free ? (
+                      <label className="flex items-center cursor-pointer">
+                        <span className="mr-3 text-sm font-medium text-gray-900">
+                          Paid
+                        </span>
+                        <div className="relative">
+                          <input type="checkbox" className="sr-only" />
+                          <div className="block bg-gray-200 w-12 h-7 rounded-full"></div>
+                        </div>
+                      </label>
+                    ) : (
+                      <div className="flex items-center space-x-3">
+                        <div className="relative">
+                          <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500">
+                            Rp
+                          </span>
+                          <input
+                            type="text"
+                            defaultValue="250.000"
+                            className="pl-8 pr-3 py-2 border border-gray-300 rounded-lg w-36 focus:ring-blue-500 focus:border-blue-500"
+                          />
+                        </div>
+                        <label className="flex items-center cursor-pointer">
+                          <span className="mr-3 text-sm font-medium text-gray-900">
+                            Paid
+                          </span>
+                          <div className="relative">
+                            <input
+                              type="checkbox"
+                              defaultChecked
+                              className="sr-only"
+                            />
+                            <div className="block bg-blue-600 w-12 h-7 rounded-full"></div>
+                          </div>
+                        </label>
+
+                      </div>
+                    )}
+                    {/* Tombol Edit */}
+                    <button className="p-2 rounded-lg border border-gray-300 hover:bg-gray-100 transition">
+                      <Pencil className="w-4 h-4 text-gray-600" />
+                    </button>
+
+                    {/* Tombol Delete */}
+                    <button className="p-2 rounded-lg border border-red-300 hover:bg-red-50 transition">
+                      <Trash2 className="w-4 h-4 text-red-600" />
+                    </button>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white p-6 rounded-xl shadow-md">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">Upcoming Schedule</h2>
-            <div className="space-y-5">
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 text-center bg-red-100 rounded-lg p-2 w-16">
-                  <p className="text-red-600 font-bold text-lg">15</p>
-                  <p className="text-red-500 text-xs">OCT</p>
-                </div>
-                <div>
-                  <p className="font-semibold text-gray-800">Live Session: AI & ML Trends</p>
-                  <p className="text-sm text-gray-500">10:00 - 11:00 WIB</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 text-center bg-blue-100 rounded-lg p-2 w-16">
-                  <p className="text-blue-600 font-bold text-lg">21</p>
-                  <p className="text-blue-500 text-xs">OCT</p>
-                </div>
-                <div>
-                  <p className="font-semibold text-gray-800">Project Deadline: Web Bootcamp</p>
-                  <p className="text-sm text-gray-500">Due at 23:59 WIB</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 text-center bg-purple-100 rounded-lg p-2 w-16">
-                  <p className="text-purple-600 font-bold text-lg">28</p>
-                  <p className="text-purple-500 text-xs">OCT</p>
-                </div>
-                <div>
-                  <p className="font-semibold text-gray-800">Webinar: Digital Marketing 2025</p>
-                  <p className="text-sm text-gray-500">19:00 - 20:30 WIB</p>
-                </div>
-              </div>
-            </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-      </div>
-    </>
+      </main>
+    </div>
   );
 }

@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Home, BookOpen, Users, Radio, ShoppingBag } from 'lucide-react';
+import { Home, BookOpen, Users, Radio, ShoppingBag, List } from 'lucide-react';
 
 export default function Sidebar() {
   const location = useLocation();
@@ -9,19 +9,24 @@ export default function Sidebar() {
   };
 
   const menuItems = [
-    { path: '/', label: 'Dashboard', icon: Home },
+    { path: '/', label: 'Homepage', icon: Home },
     { path: '/courses', label: 'Courses', icon: BookOpen },
     { path: '/forum', label: 'Forum', icon: Users },
     { path: '/livestream', label: 'Live Streaming', icon: Radio },
     { path: '/shop', label: 'Shop', icon: ShoppingBag },
+    { path: '/dashboard', label: 'Dashboard', icon: List },
   ];
 
   return (
     <aside className="w-64 flex-shrink-0 bg-white border-r border-gray-200 flex flex-col">
-      <div className="h-16 flex items-center justify-center border-b border-gray-200">
-        <h1 className="text-2xl font-bold text-blue-600">SalingTau</h1>
+      <div className="h-16 flex px-6 items-center">
+        <img
+          src="/SalingTau-logo.jpg"
+          alt="Logo"
+          className="h-10 w-10 object-contain rounded-lg"
+        />
       </div>
-      <nav className="flex-1 px-4 py-6 space-y-2">
+      <nav className="flex-1 px-4 py-2 space-y-2">
         {menuItems.map((item) => {
           const Icon = item.icon;
           const active = isActive(item.path);
