@@ -1,8 +1,7 @@
-import { Link } from "react-router-dom";
-import { Search, Star } from "lucide-react";
-import CategoryColor from "../components/CategoryColor.tsx";
+import { Search } from "lucide-react";
+import { CourseCard, Course } from "../components/CourseCard.tsx";
 
-const coursesData = [
+const coursesData: Course[] = [
   {
     image:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop",
@@ -71,52 +70,7 @@ export default function Courses() {
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {coursesData.map((course, index) => (
-              <Link
-                key={index}
-                to="/courses/player"
-                className="block bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow transform hover:-translate-y-1"
-              >
-                <div className="relative">
-                  <img
-                    className="h-40 w-full object-cover"
-                    src={course.image}
-                    alt={course.title}
-                  />
-                  {/* Price Badge */}
-                  <span className="absolute top-2 left-2 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-md shadow">
-                    {course.price}
-                  </span>
-                </div>
-
-                <div className="p-5">
-                  <span className={CategoryColor(course.category)}>
-                    {course.category}
-                  </span>
-                  <h3 className="mt-3 text-lg font-semibold text-gray-900 truncate">
-                    {course.title}
-                  </h3>
-                  <p className="mt-1 text-sm text-gray-500">
-                    by {course.creator}
-                  </p>
-
-                  {/* Rating */}
-                  <div className="flex items-center mt-3 space-x-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className={`w-4 h-4 ${
-                          i < Math.round(course.rating)
-                            ? "text-yellow-400 fill-yellow-400"
-                            : "text-gray-300"
-                        }`}
-                      />
-                    ))}
-                    <span className="ml-2 text-sm text-gray-600">
-                      {course.rating} ({course.totalRatings})
-                    </span>
-                  </div>
-                </div>
-              </Link>
+              <CourseCard key={index} course={course} />
             ))}
           </div>
         </div>

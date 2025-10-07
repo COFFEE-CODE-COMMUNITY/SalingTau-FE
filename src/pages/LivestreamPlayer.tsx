@@ -1,8 +1,37 @@
-import { Share2, Send } from 'lucide-react';
+import { Share2, Send } from "lucide-react";
+import { LiveChatBubble } from "../components/LiveChatBubble";
+import { useState } from "react";
 
 export default function LivestreamPlayer() {
+  // Contoh array of chat dari backend
+  const [chatMessages] = useState([
+    {
+      id: 1,
+      name: "Jane Smith",
+      message: "This is awesome! Can't wait to see the final result.",
+      avatar:
+        "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=2561&auto=format&fit=crop",
+    },
+    {
+      id: 2,
+      name: "Andi Pratama",
+      message: "Thanks for streaming! Very helpful.",
+      avatar:
+        "https://images.unsplash.com/photo-1528763380143-65b3ac89a3ff?q=80&w=2574&auto=format&fit=crop",
+      isSelf: true,
+    },
+    {
+      id: 3,
+      name: "Emily White",
+      message: "Could you explain the part about React hooks again?",
+      avatar:
+        "https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?q=80&w=2574&auto=format&fit=crop",
+    },
+  ]);
+
   return (
     <div className="flex flex-col lg:flex-row h-full">
+      {/* === LEFT: VIDEO + DETAILS === */}
       <div className="flex-1 flex flex-col">
         <div className="bg-black aspect-video flex items-center justify-center">
           <img
@@ -19,7 +48,9 @@ export default function LivestreamPlayer() {
                 Live Coding Session: Building a Web App with React
               </h1>
               <div className="flex items-center space-x-2 mt-2 text-sm text-gray-500">
-                <span className="bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">LIVE</span>
+                <span className="bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
+                  LIVE
+                </span>
                 <span>3,452 viewers</span>
                 <span>•</span>
                 <span>Started 45 minutes ago</span>
@@ -31,6 +62,7 @@ export default function LivestreamPlayer() {
               </button>
             </div>
           </div>
+
           <div className="mt-4 pt-4 border-t border-gray-200 flex justify-between items-center">
             <div className="flex items-center space-x-3">
               <img
@@ -48,54 +80,36 @@ export default function LivestreamPlayer() {
             </button>
           </div>
         </div>
+
         <div className="flex-1 bg-gray-50 p-6 overflow-y-auto">
           <h3 className="font-semibold mb-2">About this stream:</h3>
           <p className="text-sm text-gray-600">
-            Join me in this live session where we'll build a complete web application from scratch using
-            React, Node.js, and Tailwind CSS. Ask your questions in the live chat!
+            Join me in this live session where we'll build a complete web
+            application from scratch using React, Node.js, and Tailwind CSS.
+            Ask your questions in the live chat!
           </p>
         </div>
       </div>
 
+      {/* === RIGHT: LIVE CHAT === */}
       <div className="w-full lg:w-96 flex flex-col bg-white border-l border-gray-200 h-full">
         <div className="p-4 border-b border-gray-200">
           <h3 className="font-semibold text-lg text-gray-900">Live Chat</h3>
         </div>
+
+        {/* Render chat dari array */}
         <div className="flex-1 p-4 overflow-y-auto flex flex-col space-y-4">
-          <div className="flex items-start space-x-2.5 max-w-xs">
-            <img
-              className="h-8 w-8 rounded-full object-cover"
-              src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=2561&auto=format&fit=crop"
-              alt="Avatar"
+          {chatMessages.map((chat) => (
+            <LiveChatBubble
+              key={chat.id}
+              name={chat.name}
+              message={chat.message}
+              avatar={chat.avatar}
+              isSelf={chat.isSelf}
             />
-            <div className="bg-gray-100 p-3 rounded-r-lg rounded-bl-lg">
-              <p className="text-sm font-semibold text-gray-800">Jane Smith</p>
-              <p className="text-sm text-gray-700">This is awesome! Can't wait to see the final result.</p>
-            </div>
-          </div>
-          <div className="flex items-start space-x-2.5 max-w-xs self-end">
-            <div className="bg-blue-100 p-3 rounded-l-lg rounded-br-lg">
-              <p className="text-sm font-semibold text-blue-800">Andi Pratama</p>
-              <p className="text-sm text-blue-900">Thanks for streaming! Very helpful.</p>
-            </div>
-            <img
-              className="h-8 w-8 rounded-full object-cover"
-              src="https://images.unsplash.com/photo-1528763380143-65b3ac89a3ff?q=80&w=2574&auto=format&fit=crop"
-              alt="Your Avatar"
-            />
-          </div>
-          <div className="flex items-start space-x-2.5 max-w-xs">
-            <img
-              className="h-8 w-8 rounded-full object-cover"
-              src="https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?q=80&w=2574&auto=format&fit=crop"
-              alt="Avatar"
-            />
-            <div className="bg-gray-100 p-3 rounded-r-lg rounded-bl-lg">
-              <p className="text-sm font-semibold text-gray-800">Emily White</p>
-              <p className="text-sm text-gray-700">Could you explain the part about React hooks again?</p>
-            </div>
-          </div>
+          ))}
         </div>
+
         <div className="p-4 bg-white border-t border-gray-200 mt-auto">
           <div className="relative">
             <input

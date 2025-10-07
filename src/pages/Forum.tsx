@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Plus, Search, MessageCircle, Eye } from 'lucide-react';
+import { Plus, MessageCircle, Eye } from 'lucide-react';
+import SearchBar from "../components/SearchBar.tsx";
 
 export default function Forum() {
   return (
@@ -9,15 +10,7 @@ export default function Forum() {
           <div>
             <h2 className="text-xl font-semibold text-gray-900">Community Forum</h2>
           </div>
-          <div className="relative w-full sm:w-64 mx-auto mr-4">
-            <Search className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-            <input
-              type="text"
-              placeholder="Search topics..."
-              className="w-full pl-10 pr-4 py-2 text-sm border border-gray-300 rounded-lg
-                 focus:ring-blue-500 focus:border-blue-500 transition"
-            />
-          </div>
+          {SearchBar("Search Topic...", "relative w-full sm:w-64 mx-auto mr-4")}
           <div className="flex items-center space-x-4">
             <Link
               to="/forum/create"
