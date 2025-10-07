@@ -1,4 +1,15 @@
+import {useNavigate} from "react-router-dom";
+
 export default function Profile() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // hapus status login
+    localStorage.removeItem("isLoggedIn");
+    // redirect ke login
+    navigate("/");
+  };
+
   return (
     <div className="p-8">
       {/* Header Profile */}
@@ -15,6 +26,9 @@ export default function Profile() {
           </div>
           <button className="bg-blue-50 text-blue-600 px-5 py-2 rounded-lg text-sm font-semibold hover:bg-blue-100">
             Edit Profile
+          </button>
+          <button onClick={handleLogout} className="bg-red-50 text-red-600 px-5 py-2 rounded-lg text-sm font-semibold hover:bg-blue-100">
+            Logout
           </button>
         </div>
       </div>
