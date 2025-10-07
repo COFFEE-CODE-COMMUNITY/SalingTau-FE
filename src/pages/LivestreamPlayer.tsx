@@ -1,4 +1,4 @@
-import { Share2, Bookmark, Send } from 'lucide-react';
+import { Share2, Send } from 'lucide-react';
 
 export default function LivestreamPlayer() {
   return (
@@ -26,9 +26,6 @@ export default function LivestreamPlayer() {
               </div>
             </div>
             <div className="flex items-center space-x-2 mt-4 sm:mt-0">
-              <button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
-                <Bookmark className="w-6 h-6 text-gray-600" />
-              </button>
               <button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
                 <Share2 className="w-6 h-6 text-gray-600" />
               </button>
