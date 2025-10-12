@@ -1,6 +1,6 @@
 import { Calendar } from "lucide-react";
-import SearchBar from "../components/SearchBar.tsx";
-import { LiveStreamCard, LiveStream } from "../components/LiveStreamCard.tsx";
+import SearchBar from "../../components/SearchBar.tsx";
+import { LiveStreamCard, LiveStream } from "../../components/LiveStreamCard.tsx";
 
 export default function Livestream() {
   const liveStreams: LiveStream[] = [

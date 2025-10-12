@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Plus, MessageCircle, Eye } from 'lucide-react';
-import SearchBar from "../components/SearchBar.tsx";
+import SearchBar from "../../components/SearchBar.tsx";
 
 export default function Forum() {
   return (

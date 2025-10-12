@@ -1,20 +1,20 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
-import Homepage from './pages/Homepage.tsx';
-import Courses from './pages/Courses';
-import CreateCourse from './pages/CreateCourse';
-import CoursePlayer from './pages/CoursePlayer';
-import Forum from './pages/Forum';
-import ForumThread from './pages/ForumThread';
-import CreatePost from './pages/CreatePost';
-import Livestream from './pages/Livestream';
-import LivestreamPlayer from './pages/LivestreamPlayer';
-import GoLive from './pages/GoLive';
-import Shop from './pages/Shop';
-import Profile from './pages/Profile';
-import Dashboard from './pages/Dashboard';
-import Login from "./pages/Login.tsx";
-import Register from "./pages/Register.tsx";
+import Homepage from './pages/homepages/Homepage.tsx';
+import Courses from './pages/courses/Courses.tsx';
+import CreateCourse from './pages/dashboards/CreateCourse.tsx';
+import CoursePlayer from './pages/courses/CoursePlayer.tsx';
+import Forum from './pages/forums/Forum.tsx';
+import ForumThread from './pages/forums/ForumThread.tsx';
+import CreatePost from './pages/forums/CreatePost.tsx';
+import Livestream from './pages/livestreams/Livestream.tsx';
+import LivestreamPlayer from './pages/livestreams/LivestreamPlayer.tsx';
+import GoLive from './pages/dashboards/GoLive.tsx';
+import Shop from './pages/shops/Shop.tsx';
+import Profile from './pages/profiles/Profile.tsx';
+import Dashboard from './pages/dashboards/Dashboard.tsx';
+import Login from "./pages/login/Login.tsx";
+import Register from "./pages/register/Register.tsx";
 
 function App() {
   return (

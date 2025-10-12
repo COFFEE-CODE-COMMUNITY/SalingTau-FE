@@ -1,5 +1,5 @@
 import { Share2, Send } from "lucide-react";
-import { LiveChatBubble } from "../components/LiveChatBubble";
+import { LiveChatBubble } from "../../components/LiveChatBubble.tsx";
 import { useState } from "react";
 
 export default function LivestreamPlayer() {

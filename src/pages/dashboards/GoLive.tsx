@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import { Upload } from 'lucide-react';
+import {Link} from "react-router-dom";
+import {Upload} from "lucide-react";
 
 export default function GoLive() {
   return (

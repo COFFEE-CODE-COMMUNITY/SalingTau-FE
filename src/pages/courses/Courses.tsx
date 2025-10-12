@@ -1,5 +1,5 @@
 import { Search } from "lucide-react";
-import { CourseCard, Course } from "../components/CourseCard.tsx";
+import { CourseCard, Course } from "../../components/CourseCard.tsx";
 
 const coursesData: Course[] = [
   {
