@@ -1,4 +1,4 @@
-import {useNavigate} from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function Profile() {
   const navigate = useNavigate();
@@ -24,7 +24,9 @@ export default function Profile() {
             <h2 className="text-2xl font-bold text-gray-900">Andi Pratama</h2>
             <p className="text-gray-500">Creator & Web Developer</p>
           </div>
-          <button className="bg-blue-50 text-blue-600 px-5 py-2 rounded-lg text-sm font-semibold hover:bg-blue-100">
+          <button
+            onClick={() => navigate('/edit-profile')}
+            className="bg-blue-50 text-blue-600 px-5 py-2 rounded-lg text-sm font-semibold hover:bg-blue-100">
             Edit Profile
           </button>
           <button onClick={handleLogout} className="bg-red-50 text-red-600 px-5 py-2 rounded-lg text-sm font-semibold hover:bg-blue-100">
@@ -36,33 +38,38 @@ export default function Profile() {
       {/* Tabs */}
       <div className="mt-8">
         <div className="border-b border-gray-200">
-          <nav className="-mb-px flex space-x-8" aria-label="Tabs">
-            <a
-              href="#"
-              className="border-blue-500 text-blue-600 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"
-              aria-current="page"
-            >
-              Profile
-            </a>
-            <a
-              href="#"
-              className="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"
-            >
-              Settings
-            </a>
-            <a
-              href="#"
-              className="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"
-            >
-              Security
-            </a>
-          </nav>
+        <nav className="-mb-px flex space-x-8" aria-label="Tabs">
+          {/* Tab Profile */}
+          <Link
+            to="/profile"
+            className="border-blue-500 text-blue-600 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"
+            aria-current="page"
+          >
+            Profile
+          </Link>
+          
+          {/* Tab Settings */}
+          <Link
+            to="/settings"
+            className="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"
+          >
+            Settings
+          </Link>
+
+          {/* Tab Security */}
+          <Link
+            to="/security"
+            className="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"
+          >
+            Security
+          </Link>
+        </nav>
         </div>
       </div>
 
       {/* Content */}
       <div className="mt-8 space-y-8">
-        {/* Informasi umum */}
+        {/* General information */}
         <div className="bg-white rounded-xl shadow-md border p-6">
           <h3 className="text-lg font-bold text-gray-900">Informasi Pribadi</h3>
           <dl className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -71,26 +78,22 @@ export default function Profile() {
               <dd className="mt-1 text-gray-900">andi.pratama@example.com</dd>
             </div>
             <div>
-              <dt className="text-sm text-gray-500">Username</dt>
-              <dd className="mt-1 text-gray-900">@andipratama</dd>
-            </div>
-            <div>
               <dt className="text-sm text-gray-500">Tanggal Bergabung</dt>
               <dd className="mt-1 text-gray-900">Januari 2023</dd>
             </div>
             <div>
-              <dt className="text-sm text-gray-500">Role</dt>
-              <dd className="mt-1 text-gray-900">Instructor</dd>
+              <dt className="text-sm text-gray-500">Peran</dt>
+              <dd className="mt-1 text-gray-900">Pengajar</dd>
             </div>
           </dl>
         </div>
 
-        {/* Aktivitas Terakhir */}
+        {/* Recent Activity */}
         <div className="bg-white rounded-xl shadow-md border p-6">
           <h3 className="text-lg font-bold text-gray-900">Aktivitas Terbaru</h3>
           <ul className="mt-4 space-y-4">
             <li className="flex items-center justify-between">
-              <p className="text-gray-700">Mengupdate course "React Basics"</p>
+              <p className="text-gray-700">Kursus Mengupdate "Dasar-Dasar React"</p>
               <span className="text-sm text-gray-500">2 hari lalu</span>
             </li>
             <li className="flex items-center justify-between">
@@ -98,7 +101,7 @@ export default function Profile() {
               <span className="text-sm text-gray-500">1 minggu lalu</span>
             </li>
             <li className="flex items-center justify-between">
-              <p className="text-gray-700">Bergabung sebagai Instructor</p>
+              <p className="text-gray-700">Bergabung sebagai pengajar</p>
               <span className="text-sm text-gray-500">Januari 2023</span>
             </li>
           </ul>

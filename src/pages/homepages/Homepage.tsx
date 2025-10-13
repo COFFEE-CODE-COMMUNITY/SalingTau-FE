@@ -1,28 +1,34 @@
 import { Bell, BookOpen, CheckCircle, Clock } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Homepage() {
   return (
     <>
+      {/* Header */}
       <header className="sticky top-0 bg-white/80 backdrop-blur-sm border-b border-gray-200 z-10">
         <div className="h-16 flex items-center justify-between px-6">
           <div>
             <h2 className="text-xl font-semibold text-gray-900">Dashboard</h2>
           </div>
           <div className="flex items-center space-x-4">
-
-            <button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
+            <Link
+              to="/notifications"
+              className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+            >
               <Bell className="w-5 h-5 text-gray-500" />
-            </button>
+            </Link>
           </div>
         </div>
       </header>
 
       <div className="p-8">
+        {/* Welcome Message */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900">Selamat Datang Kembali, Andi! 👋</h1>
           <p className="mt-1 text-gray-500">Selalu ada hal baru untuk dipelajari. Teruslah berkembang!</p>
         </div>
 
+        {/* Stats Cards */}
         <div className="flex flex-wrap gap-6 mb-8">
           <div className="bg-white p-6 rounded-xl shadow-md flex items-center space-x-4 flex-1 min-w-[250px]">
             <div className="bg-blue-100 p-3 rounded-full">
@@ -55,14 +61,16 @@ export default function Homepage() {
           </div>
         </div>
 
+        {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Continue Learning Section */}
           <div className="lg:col-span-2">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">Continue Learning</h2>
             <div className="space-y-6">
               <div className="bg-white rounded-xl shadow-md overflow-hidden flex items-center p-4 transition-shadow hover:shadow-lg">
                 <img
                   className="h-24 w-32 object-cover rounded-lg"
-                  src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2670&auto=format&fit=crop"
+                  src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2670&auto-format&fit=crop"
                   alt="Web Development Course"
                 />
                 <div className="flex-1 ml-5">
@@ -107,6 +115,8 @@ export default function Homepage() {
               </div>
             </div>
           </div>
+          
+          {/* Upcoming Schedule Section */}
           <div className="bg-white p-6 rounded-xl shadow-md">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">Upcoming Schedule</h2>
             <div className="space-y-5">

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { EyeIcon, EyeOffIcon } from "lucide-react";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ export default function Register() {
     });
 
     alert("Registrasi berhasil! (Simulasi) | Silakan login.");
-    navigate("/login");
+    navigate("/");
   };
 
   return (
@@ -85,13 +86,9 @@ export default function Register() {
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute top-4 right-2 flex items-center pr-3"
+              className="absolute top-3 right-2 flex items-center pr-3"
             >
-              <img
-                src={showPassword ? "/eye-open.svg" : "/eye-closed.svg"}
-                alt="Toggle password visibility"
-                className="h-5 w-5 text-gray-500"
-              />
+            {showPassword ? <EyeIcon/>:<EyeOffIcon/>}
             </button>
           </div>
 
@@ -100,7 +97,7 @@ export default function Register() {
           <div className="relative w-full mb-4">
             <input
               type={showConfirmPassword ? "text" : "password"}
-              placeholder="Konfirmasi Password"
+              placeholder="Confirm Password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
@@ -111,11 +108,7 @@ export default function Register() {
               onClick={() => setShowConfirmPassword(!showConfirmPassword)} 
               className="absolute top-4 right-2 flex items-center pr-3"
             >
-              <img
-                src={showConfirmPassword ? "/eye-open.svg" : "/eye-closed.svg"}
-                alt="Toggle password visibility"
-                className="h-5 w-5 text-gray-500"
-              />
+            {showConfirmPassword ? <EyeIcon/>:<EyeOffIcon/>}
             </button>
           </div>
 
@@ -130,7 +123,7 @@ export default function Register() {
         </form>
 
         {/* OR */}
-        <div className="my-4 text-gray-500">atau</div>
+        <div className="my-3 text-gray-500">atau</div>
 
         {/* Google Register */}
         <button className="w-full flex items-center justify-center gap-2 border border-gray-300 p-3 rounded hover:bg-gray-100 transition">
@@ -141,7 +134,7 @@ export default function Register() {
         {/* Login Link */}
         <p className="mt-6 text-gray-700">
           Sudah punya akun?{" "}
-          <Link to="/login" className="text-blue-600 hover:underline">
+          <Link to="/" className="text-blue-600 hover:underline">
             Masuk di sini
           </Link>
         </p>

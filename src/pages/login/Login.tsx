@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { EyeIcon, EyeOffIcon } from "lucide-react";
 
 
 export default function Login() {
@@ -29,10 +30,11 @@ export default function Login() {
         </div>
 
         <form onSubmit={handleLogin}>
-          {/* Username */}
+          {/* Email */}
           <input
-            type="text"
-            placeholder="Username"
+            type="email"
+            placeholder="Email"
+            required
             className="w-full p-3 mb-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
 
@@ -41,18 +43,15 @@ export default function Login() {
             <input
               type={showPassword ? "text" : "password"}
               placeholder="Password"
-              className="w-full p-3 mb-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+              className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute top-4 right-2 flex items-center pr-3"
+              className="absolute top-3.5 right-3 flex items-center"
             >
-              <img
-                src={showPassword ? "/eye-open.svg" : "/eye-closed.svg"}
-                alt="Toggle password visibility"
-                className="h-5 w-5 text-gray-500"
-              />
+             {showPassword ? <EyeIcon/>:<EyeOffIcon/>}
             </button>
           </div>
 
@@ -67,13 +66,13 @@ export default function Login() {
 
         {/* Forgot Password */}
         <p className="mt-3 text-gray-700">
-          <Link to="/ForgotPassword.tsx" className="text-blue-600 hover:underline">
+          <Link to="/forgot-password" className="text-blue-600 hover:underline">
             Lupa password
           </Link>
         </p>
 
         {/* OR */}
-        <div className="my-4 text-gray-500">atau</div>
+        <div className="my-3 text-gray-500">atau</div>
 
         {/* Google Login */}
         <button className="w-full flex items-center justify-center gap-2 border border-gray-300 p-3 rounded hover:bg-gray-100 transition">
@@ -82,7 +81,7 @@ export default function Login() {
         </button>
 
         {/* Register Link */}
-        <p className="mt-6 text-gray-700">
+        <p className="mt-7 text-gray-700">
           Belum punya akun?{" "}
           <Link to="/register" className="text-blue-600 hover:underline">
             Daftar di sini

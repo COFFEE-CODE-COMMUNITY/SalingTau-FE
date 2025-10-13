@@ -15,6 +15,11 @@ import Profile from './pages/profiles/Profile.tsx';
 import Dashboard from './pages/dashboards/Dashboard.tsx';
 import Login from "./pages/login/Login.tsx";
 import Register from "./pages/register/Register.tsx";
+import ForgotPassword from './pages/ForgotPassword.tsx';
+import Notifications from './pages/Notifications.tsx';
+import Settings from './pages/Settings.tsx';
+import EditProfile from './pages/EditProfile.tsx';
+import Security from './pages/Security.tsx';
 
 function App() {
   return (
@@ -22,6 +27,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
 
         <Route element={<Layout />}>
           <Route path="homepage" element={<Homepage/>}/>
@@ -34,8 +40,12 @@ function App() {
           <Route path="livestream/player" element={<LivestreamPlayer />} />
           <Route path="dashboard/go-live" element={<GoLive />} />
           <Route path="dashboard/create-course" element={<CreateCourse />} />
+          <Route path="notifications" element={<Notifications />} />
           <Route path="shop" element={<Shop />} />
           <Route path="profile" element={<Profile />} />
+          <Route path="edit-profile" element={<EditProfile />} />
+          <Route path="settings" element={<Settings />} />
+          <Route path="security" element={<Security />} /> 
           <Route path="dashboard" element={<Dashboard />}/>
         </Route>
       </Routes>
